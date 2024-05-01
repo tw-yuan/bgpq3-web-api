@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "child_process": "^1.0.2",
+    "express": "^4.19.2"
+  },
+  "name": "bgpq3-web-api",
+  "version": "1.0.0",
+  "description": "An web api for bgpq3",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tw-yuan/bgpq3-web-apt.git"
+  },
+  "keywords": [
+    "bgpq3",
+    "api"
+  ],
+  "author": "Yuan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tw-yuan/bgpq3-web-apt/issues"
+  },
+  "homepage": "https://github.com/tw-yuan/bgpq3-web-apt#readme"
+}
