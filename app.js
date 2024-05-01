@@ -1,11 +1,9 @@
 const express = require('express');
-const { exec } = require('child_process');
 const { execFile } = require('child_process');
 const app = express();
 
 app.get('/route4', (req, res) => {
   const query = req.query.req;
-  const command = `bgpq3 -4 -j ${query}`;
   const child = execFile('bgpq3', ['-4', '-j', query], (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
