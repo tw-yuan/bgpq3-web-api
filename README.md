@@ -6,10 +6,10 @@ npm i
 node app.js
 ```
 ## API usage
-``/route4?req={query}``
-It will exec ``bgpq3 -4 -j ${query} `` 
-And it will output json format.
-
-``/route6?req={query}``
-It will exec ``bgpq3 -64 -j ${query} `` 
-And it will output json format.
+``/route4?req={query}``<br>
+It will exec ``bgpq3 -4 -j ${query} `` <br>
+And it will output json format.<br>
+<br>
+``/route6?req={query}``<br>
+It will exec ``bgpq3 -64 -j ${query} `` <br>
+And it will output json format.<br>
