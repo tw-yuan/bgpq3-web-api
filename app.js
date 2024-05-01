@@ -7,7 +7,7 @@ app.get('/route4', (req, res) => {
   const child = execFile('bgpq3', ['-4', '-j', query], (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
-      return res.status(500).send(`Error executing command: ${error}`);
+      return res.status(500).send(`Error occurred.`);
     }
 
     res.send(stdout);
@@ -20,7 +20,7 @@ app.get('/route6', (req, res) => {
   const child = execFile('bgpq3', ['-6', '-j', query], (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
-      return res.status(500).send(`Error executing command: ${error}`);
+      return res.status(500).send(`Error occurred.`);
     }
     
     res.send(stdout);
