@@ -1,0 +1,8 @@
+version: "3.7"
+services:
+  bgpq3-web-api:
+    build:
+      context: .
+    container_name: bgpq3-web-api
+    ports:
+      - "6999:6999"
