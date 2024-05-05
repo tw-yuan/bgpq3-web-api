@@ -26,9 +26,4 @@ app.get('/route6', (c) => {
 
 });
 
-const port = 6999
-console.log(`Running at http://localhost:${port}`)
-export default {
-  port,
-  fetch: app.fetch,
-}
+export default app
