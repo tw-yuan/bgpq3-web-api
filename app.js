@@ -10,7 +10,7 @@ app.get('/route4', (req, res) => {
       return res.status(500).send(`Error occurred.`);
     }
 
-    res.json(JSON.stringify(stdout));
+    res.json(JSON.parse(stdout));
   });
 
 });
