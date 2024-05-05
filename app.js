@@ -9,10 +9,8 @@ app.get('/route4', (req, res) => {
       console.error(`exec error: ${error}`);
       return res.status(500).send(`Error occurred.`);
     }
-
     res.json(JSON.parse(stdout));
   });
-
 });
 
 app.get('/route6', (req, res) => {
@@ -22,10 +20,8 @@ app.get('/route6', (req, res) => {
       console.error(`exec error: ${error}`);
       return res.status(500).send(`Error occurred.`);
     }
-    
     res.json(JSON.parse(stdout));
   });
-
 });
 
 app.listen(3001, () => {
