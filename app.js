@@ -23,7 +23,7 @@ app.get('/route6', (req, res) => {
       return res.status(500).send(`Error occurred.`);
     }
     
-    res.json(stdout);
+    res.json(JSON.parse(stdout));
   });
 
 });
