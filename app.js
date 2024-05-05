@@ -10,7 +10,7 @@ app.get('/route4', (req, res) => {
       return res.status(500).send(`Error occurred.`);
     }
 
-    res.send(stdout);
+    res.json(stdout);
   });
 
 });
@@ -23,7 +23,7 @@ app.get('/route6', (req, res) => {
       return res.status(500).send(`Error occurred.`);
     }
     
-    res.send(stdout);
+    res.json(stdout);
   });
 
 });
