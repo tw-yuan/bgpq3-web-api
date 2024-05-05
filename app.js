@@ -1,34 +1,34 @@
-const express = require('express');
+import { Hono } from 'hono'
 const { execFile } = require('child_process');
-const app = express();
+const app = new Hono();
 
-app.get('/route4', (req, res) => {
-  const query = req.query.req;
+app.get('/route4', (c) => {
+  const query = c.req.query('req');
   const child = execFile('bgpq3', ['-4', '-j', query], (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
-      return res.status(500).send(`Error occurred.`);
+      return c.json({status: '500', message: ` ${error}` })
     }
-
-    res.send(stdout);
+    return c.json(stdout)
   });
 
 });
 
-app.get('/route6', (req, res) => {
-  const query = req.query.req;
+app.get('/route6', (c) => {
+  const query = c.req.query('req');
   const child = execFile('bgpq3', ['-6', '-j', query], (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
-      return res.status(500).send(`Error occurred.`);
+      return c.json({status: '500', message: ` ${error}` })
     }
-    
-    res.send(stdout);
+    return c.json(stdout)
   });
 
 });
 
-const port = process.env.PORT || 6999;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
-});
+const port = 6999
+console.log(`Running at http://localhost:${port}`)
+export default {
+  port,
+  fetch: app.fetch,
+}
