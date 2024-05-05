@@ -22,5 +22,9 @@ or
 docker-compose up -d
 ```
 And it will run on port 6999.
+## Public Example
+```
+https://bgpq.yuan-tw.net/route4?req=as204844
+```
 
 
