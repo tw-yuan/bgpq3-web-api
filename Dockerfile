@@ -14,4 +14,4 @@ COPY package.json /app/package.json
 RUN bun install
 
 # run
-CMD [ "bun", "run", "/app/app.js" ]
+ENTRYPOINT [ "bun", "run", "/app/app.js" ]
