@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   bgpq3-web-api:
-    image: yuan1111/bgpq3-web-api
+    image: yuan1111/bgpq3-web-api:latest
     container_name: bgpq3-web-api
     ports:
       - "6999:6999"
