@@ -28,6 +28,6 @@ app.get('/route6', (req, res) => {
 
 });
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log(`Server is running on port 3000`);
 });

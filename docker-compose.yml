@@ -4,4 +4,4 @@ services:
     image: yuan1111/bgpq3-web-api:lastest
     container_name: bgpq3-web-api
     ports:
-      - "6999:3000"
+      - "6999:3001"
