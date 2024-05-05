@@ -1,4 +1,4 @@
-FROM node:18
+FROM oven/bun:latest
 WORKDIR /app
 
 # install bgpq3
@@ -7,11 +7,11 @@ RUN apt-get install -y bgpq3
 
 # Copy file
 COPY app.js /app/app.js
-COPY package-lock.json /app/package-lock.json
+COPY bun.lockb /app/bun.lockb
 COPY package.json /app/package.json
 
 # install module
-RUN npm i
+RUN bun install
 
 # run
-CMD [ "node", "app.js" ]
+ENTRYPOINT [ "bun", "run", "/app/app.js" ]
