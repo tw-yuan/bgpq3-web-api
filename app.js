@@ -9,7 +9,9 @@ app.get('/route4', (c) => {
       console.error(`exec error: ${error}`);
       return c.json({status: '500', message: ` ${error}` })
     }
+    return Response.json(stdout)
     return c.json(stdout)
+    
   });
 
 });
