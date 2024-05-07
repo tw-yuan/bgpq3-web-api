@@ -15,6 +15,8 @@ function splitSentence(input) {
 app.get('/route4', (req, res) => {
   if (req.query.req === undefined) {
     var query = "NO_INPUT";
+  } else {
+    var query = req.query.req;
   }
   query = splitSentence(query);
   const child = execFile('bgpq3', ['-4', '-j', query[1]], (error, stdout, stderr) => {
@@ -29,6 +31,8 @@ app.get('/route4', (req, res) => {
 app.get('/route6', (req, res) => {
   if (req.query.req === undefined) {
     var query = "NO_INPUT";
+  } else {
+    var query = req.query.req;
   }
   query = splitSentence(query);
   const child = execFile('bgpq3', ['-6', '-j', query[1]], (error, stdout, stderr) => {
