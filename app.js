@@ -15,11 +15,12 @@ function splitSentence(input) {
 app.get('/route4', (req, res) => {
   if (req.query.req === undefined) {
     const query = "NO_INPUT";
+  }
   query = splitSentence(req.query.req);
   const child = execFile('bgpq3', ['-4', '-j', query[1]], (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
-      return res.status(500).json({'error': 'Error occurred.'});
+      return res.status(500).json({ 'error': 'Error occurred.' });
     }
     res.json(JSON.parse(stdout));
   });
@@ -28,11 +29,12 @@ app.get('/route4', (req, res) => {
 app.get('/route6', (req, res) => {
   if (req.query.req === undefined) {
     const query = "NO_INPUT";
+  }
   query = splitSentence(req.query.req);
   const child = execFile('bgpq3', ['-6', '-j', query[1]], (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
-      return res.status(500).json({'error': 'Error occurred.'});
+      return res.status(500).json({ 'error': 'Error occurred.' });
     }
     res.json(JSON.parse(stdout));
   });
