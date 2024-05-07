@@ -2,26 +2,58 @@ const express = require('express');
 const { execFile } = require('child_process');
 const app = express();
 
+function splitSentence(input) {
+  input = input.toUpperCase();
+  if (input.includes('::')) {
+    const parts = input.split('::');
+    return [parts[0].trim(), parts[1].trim()];
+  } else {
+    return ['NO_IRR', input.trim()];
+  }
+}
+
 app.get('/route4', (req, res) => {
-  const query = req.query.req;
-  const child = execFile('bgpq3', ['-4', '-j', query], (error, stdout, stderr) => {
-    if (error) {
-      console.error(`exec error: ${error}`);
-      return res.status(500).send(`Error occurred.`);
-    }
-    res.json(JSON.parse(stdout));
-  });
+  const query = splitSentence(req.query.req);
+  if (query[0] === 'NO_IRR') {
+    const child = execFile('bgpq3', ['-4', '-j', query[1]], (error, stdout, stderr) => {
+      if (error) {
+        console.error(`exec error: ${error}`);
+        return res.status(500).json({ 'error': 'Error occurred.' });
+      }
+      res.json(JSON.parse(stdout));
+    });
+  } else {
+    const child = execFile('bgpq3', ['-4', '-j','-S' ,query[0], query[1]], (error, stdout, stderr) => {
+      if (error) {
+        console.error(`exec error: ${error}`);
+        return res.status(500).json({ 'error': 'Error occurred.' });
+      }
+      res.json(JSON.parse(stdout));
+    });
+  }
+
 });
 
 app.get('/route6', (req, res) => {
-  const query = req.query.req;
-  const child = execFile('bgpq3', ['-6', '-j', query], (error, stdout, stderr) => {
-    if (error) {
-      console.error(`exec error: ${error}`);
-      return res.status(500).send(`Error occurred.`);
-    }
-    res.json(JSON.parse(stdout));
-  });
+  const query = splitSentence(req.query.req);
+  if (query[0] === 'NO_IRR') {
+    const child = execFile('bgpq3', ['-6', '-j', query[1]], (error, stdout, stderr) => {
+      if (error) {
+        console.error(`exec error: ${error}`);
+        return res.status(500).json({ 'error': 'Error occurred.' });
+      }
+      res.json(JSON.parse(stdout));
+    });
+  } else {
+    const child = execFile('bgpq3', ['-6', '-j','-S' ,query[0], query[1]], (error, stdout, stderr) => {
+      if (error) {
+        console.error(`exec error: ${error}`);
+        return res.status(500).json({ 'error': 'Error occurred.' });
+      }
+      res.json(JSON.parse(stdout));
+    });
+  }
+
 });
 
 app.listen(3001, () => {
