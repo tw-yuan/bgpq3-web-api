@@ -16,7 +16,7 @@ app.get('/route4', (req, res) => {
   if (req.query.req === undefined) {
     const query = "NO_INPUT";
   }
-  query = splitSentence(req.query.req);
+  query = splitSentence(query);
   const child = execFile('bgpq3', ['-4', '-j', query[1]], (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
@@ -30,7 +30,7 @@ app.get('/route6', (req, res) => {
   if (req.query.req === undefined) {
     const query = "NO_INPUT";
   }
-  query = splitSentence(req.query.req);
+  query = splitSentence(query);
   const child = execFile('bgpq3', ['-6', '-j', query[1]], (error, stdout, stderr) => {
     if (error) {
       console.error(`exec error: ${error}`);
