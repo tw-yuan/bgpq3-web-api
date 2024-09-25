@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "child_process": "^1.0.2",
-    "express": "^4.19.2",
+    "express": "^4.21.0",
     "hono": "^4.3.2"
   },
   "name": "bgpq3-web-api",
